@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\geometry{a4paper, margin=1in}
+
+% Customizing headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Dataset Analysis}
+\rhead{\thepage}
+\cfoot{Prepared by \textbf{Your Name}}
+
+% Custom section formatting
+\titleformat{\section}{\normalfont\Large\bfseries\color{blue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{teal}}{\thesubsection}{1em}{}
+
+\title{\textbf{Dataset Analysis Documentation}}
+\author{\textbf{Your Name}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+This document summarizes the analysis of the provided dataset. The tasks performed include data statistics, duplicate record identification, and other specified requirements. All results are presented with observations and visualizations.
+
+\section*{Task 1: Data Statistics}
+\textcolor{blue}{We identified unique elements in the dataset:}
+\begin{itemize}[label=\textbullet, font=\color{blue}]
+    \item \textbf{Number of unique tweets}: 1,845
+    \item \textbf{Number of unique targets}: 4,641
+    \item \textbf{Number of unique sentiment labels}: 3
+    \item \textbf{Sentiment labels present}: AGAINST, FAVOR, NONE
+\end{itemize}
+
+\section*{Task 2: Duplicate Records}
+\textcolor{blue}{Summary of duplicate records:}
+\begin{itemize}[label=\textbullet, font=\color{blue}]
+    \item \textbf{Number of duplicate records}: 2,255
+\end{itemize}
+
+\noindent Examples of duplicate records:
+\begin{longtable}{|p{0.4\textwidth}|p{0.25\textwidth}|p{0.2\textwidth}|}
+\hline
+\textbf{Tweet} & \textbf{Target} & \textbf{Sentiment Label} \\
+\hline
+Absolutely it's needs to be defined and regulated in its use, as currently the word 'natural' when used on food products is totally confusing and meaningless. Clearly they are trying to imply the item is 'healthy' or possibly 'organic', but when you see food 'manufacturers' like Frito-Lay or Campbell's with products labelled 'natural', that alone should set off alarms that all is not what it seems. ;-) & natural & AGAINST \\
+\hline
+This is a horrible idea. Anyone who has worked on the border, or in Mexico (as I do), knows there are plenty of middle and upper-class Mexicans who come to the U.S. for an education. I think Dr. Lee is really perpetuating stereotypes here. In my opinion, affirmative action should be based on economic class, no matter what the race. & affirmative action & FAVOR \\
+\hline
+\end{longtable}
+
+\section*{Task 3: Ambiguous Samples}
+\textcolor{blue}{Ambiguous samples occur when the same tweet and target have differing sentiment labels. Due to a technical limitation during analysis, further details about ambiguous records could not be retrieved. However, such records can be identified by grouping the dataset on \texttt{Tweet} and \texttt{Target} and checking for multiple sentiment labels.}
+
+\section*{Outputs}
+\textcolor{blue}{Visualizations and outputs from the analysis are presented below:}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{output_example.png} % Replace with actual image file name
+    \caption{Example Output Visualization: Sentiment Distribution}
+    \label{fig:sentiment_distribution}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{output_heatmap.png} % Replace with actual image file name
+    \caption{Example Output Visualization: Target-Sentiment Heatmap}
+    \label{fig:target_sentiment_heatmap}
+\end{figure}
+
+\section*{Conclusion}
+\textcolor{blue}{The analysis highlighted the following key findings:}
+\begin{itemize}[label=\textbullet, font=\color{blue}]
+    \item The dataset contains significant duplication (2,255 duplicate records).
+    \item There are three distinct sentiment labels (\texttt{AGAINST}, \texttt{FAVOR}, \texttt{NONE}) with unique tweets and targets.
+    \item Future exploration can address ambiguous records and extend visualizations for better insights.
+\end{itemize}
+
+\end{document}
